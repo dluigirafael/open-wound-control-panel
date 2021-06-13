@@ -3,5 +3,8 @@
 
 <button on:click={async () => await fetch("/reboot")}>reboot</button>
 
-<style>
+<style global lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>
