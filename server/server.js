@@ -32,8 +32,23 @@
 //   console.log(`App is running on ${PORT}`);
 
 // });
-import { Application, connect } from "./deps.js";
+import { Application, send, connect } from "./deps.js";
 import { database } from "./db.js";
-
 const app = new Application();
-console.log(app);
+
+app.use(async (context, next) => {
+  try {
+    await context.send({
+      root: `${Deno.cwd()}/../client/build`,
+      index: "index.html",
+    });
+  } catch {
+    next();
+  }
+});
+
+app.addEventListener("listen", ({ port }) =>
+  console.log(`listening on port: ${port} `)
+);
+
+await app.listen({ port: 8000 });
