@@ -1,7 +1,7 @@
 <script>
   import { page } from "$app/stores";
   import HeaderButton from "./headerButton.svelte";
-  import logo from "./svelte-logo.svg";
+
   let userMenu = false;
   let navMenu = false;
 </script>
@@ -106,11 +106,11 @@
         id="nav-content"
       >
         <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-          <HeaderButton>Home</HeaderButton>
-          <HeaderButton>Tasks</HeaderButton>
-          <HeaderButton>Messages</HeaderButton>
-          <HeaderButton>Payments</HeaderButton>
-          <HeaderButton>Analytics</HeaderButton>
+          <HeaderButton icon="home">Home</HeaderButton>
+          <HeaderButton icon="task">Tasks</HeaderButton>
+          <HeaderButton icon="chat">Messages</HeaderButton>
+          <HeaderButton icon="paid">Payments</HeaderButton>
+          <HeaderButton icon="analytics">Analytics</HeaderButton>
         </ul>
 
         <div class="relative pull-right pl-4 pr-4 md:pr-0">

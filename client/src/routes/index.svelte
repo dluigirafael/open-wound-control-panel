@@ -2,6 +2,7 @@
   import Chart from "chart.js/auto";
   import Card from "$lib/card.svelte";
   import { onMount } from "svelte";
+
   let chartjs7, chartjs0, chartjs1, chartjs4;
   onMount(() => {
     new Chart(chartjs7, {
