@@ -1,6 +1,9 @@
 <script>
   import { page } from "$app/stores";
+  import HeaderButton from "./headerButton.svelte";
   import logo from "./svelte-logo.svg";
+  let userMenu = false;
+  let navMenu = false;
 </script>
 
 <header>
@@ -17,10 +20,11 @@
         </a>
       </div>
       <div class="w-1/2 pr-0">
-        <div class="flex relative inline-block float-right">
+        <div class="flex relative float-right">
           <div class="relative text-sm text-gray-100">
             <button
               id="userButton"
+              on:click={() => (userMenu = !userMenu)}
               class="flex items-center focus:outline-none mr-3"
             >
               <img
@@ -45,7 +49,9 @@
             </button>
             <div
               id="userMenu"
-              class="bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible"
+              class={`bg-gray-900 rounded shadow-md mt-2 absolute  right-0 min-w-full overflow-auto z-30 ${
+                userMenu ? "" : "invisible"
+              }`}
             >
               <ul class="list-reset">
                 <li>
@@ -77,6 +83,7 @@
           <div class="block lg:hidden pr-4">
             <button
               id="nav-toggle"
+              on:click={() => (navMenu = !navMenu)}
               class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-100 hover:border-teal-500 appearance-none focus:outline-none"
             >
               <svg
@@ -93,60 +100,17 @@
       </div>
 
       <div
-        class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 z-20"
+        class={`w-full flex-grow lg:flex lg:items-center lg:w-auto ${
+          navMenu ? "" : "hidden"
+        }  mt-2 lg:mt-0 bg-gray-900 z-20`}
         id="nav-content"
       >
         <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-          <li class="mr-6 my-2 md:my-0">
-            <a
-              href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400"
-            >
-              <i class="fas fa-home fa-fw mr-3 text-blue-400" /><span
-                class="pb-1 md:pb-0 text-sm">Home</span
-              >
-            </a>
-          </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a
-              href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400"
-            >
-              <i class="fas fa-tasks fa-fw mr-3" /><span
-                class="pb-1 md:pb-0 text-sm">Tasks</span
-              >
-            </a>
-          </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a
-              href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400"
-            >
-              <i class="fa fa-envelope fa-fw mr-3" /><span
-                class="pb-1 md:pb-0 text-sm">Messages</span
-              >
-            </a>
-          </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a
-              href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-green-400"
-            >
-              <i class="fas fa-chart-area fa-fw mr-3" /><span
-                class="pb-1 md:pb-0 text-sm">Analytics</span
-              >
-            </a>
-          </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a
-              href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400"
-            >
-              <i class="fa fa-wallet fa-fw mr-3" /><span
-                class="pb-1 md:pb-0 text-sm">Payments</span
-              >
-            </a>
-          </li>
+          <HeaderButton>Home</HeaderButton>
+          <HeaderButton>Tasks</HeaderButton>
+          <HeaderButton>Messages</HeaderButton>
+          <HeaderButton>Payments</HeaderButton>
+          <HeaderButton>Analytics</HeaderButton>
         </ul>
 
         <div class="relative pull-right pl-4 pr-4 md:pr-0">

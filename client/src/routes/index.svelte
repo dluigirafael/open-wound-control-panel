@@ -1,8 +1,136 @@
-<script context="module">
-  import Card from "$lib/card.svelte";
-</script>
-
 <script>
+  import Chart from "chart.js/auto";
+  import Card from "$lib/card.svelte";
+  import { onMount } from "svelte";
+  let chartjs7, chartjs0, chartjs1, chartjs4;
+  onMount(() => {
+    new Chart(chartjs7, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Page Impressions",
+            data: [10, 20, 30, 40],
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+          },
+          {
+            label: "Adsense Clicks",
+            data: [5, 15, 10, 30],
+            type: "line",
+            fill: false,
+            borderColor: "rgb(54, 162, 235)",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+    new Chart(chartjs0, {
+      type: "line",
+      data: {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+        ],
+        datasets: [
+          {
+            label: "Views",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            lineTension: 0.1,
+          },
+        ],
+      },
+      options: {},
+    });
+
+    new Chart(chartjs1, {
+      type: "bar",
+      data: {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+        ],
+        datasets: [
+          {
+            label: "Likes",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+              "rgba(255, 205, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(201, 203, 207, 0.2)",
+            ],
+            borderColor: [
+              "rgb(255, 99, 132)",
+              "rgb(255, 159, 64)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+              "rgb(54, 162, 235)",
+              "rgb(153, 102, 255)",
+              "rgb(201, 203, 207)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+
+    new Chart(chartjs4, {
+      type: "doughnut",
+      data: {
+        labels: ["P1", "P2", "P3"],
+        datasets: [
+          {
+            label: "Issues",
+            data: [300, 50, 100],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+            ],
+          },
+        ],
+      },
+    });
+  });
 </script>
 
 <svelte:head>
@@ -49,44 +177,11 @@
             <div class="p-5">
               <canvas
                 id="chartjs-7"
+                bind:this={chartjs7}
                 class="chartjs"
                 width="undefined"
                 height="undefined"
               />
-              <script>
-                new Chart(document.getElementById("chartjs-7"), {
-                  type: "bar",
-                  data: {
-                    labels: ["January", "February", "March", "April"],
-                    datasets: [
-                      {
-                        label: "Page Impressions",
-                        data: [10, 20, 30, 40],
-                        borderColor: "rgb(255, 99, 132)",
-                        backgroundColor: "rgba(255, 99, 132, 0.2)",
-                      },
-                      {
-                        label: "Adsense Clicks",
-                        data: [5, 15, 10, 30],
-                        type: "line",
-                        fill: false,
-                        borderColor: "rgb(54, 162, 235)",
-                      },
-                    ],
-                  },
-                  options: {
-                    scales: {
-                      yAxes: [
-                        {
-                          ticks: {
-                            beginAtZero: true,
-                          },
-                        },
-                      ],
-                    },
-                  },
-                });
-              </script>
             </div>
           </div>
           <!--/Graph Card-->
@@ -101,36 +196,11 @@
             <div class="p-5">
               <canvas
                 id="chartjs-0"
+                bind:this={chartjs0}
                 class="chartjs"
                 width="undefined"
                 height="undefined"
               />
-              <script>
-                new Chart(document.getElementById("chartjs-0"), {
-                  type: "line",
-                  data: {
-                    labels: [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                    ],
-                    datasets: [
-                      {
-                        label: "Views",
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        borderColor: "rgb(75, 192, 192)",
-                        lineTension: 0.1,
-                      },
-                    ],
-                  },
-                  options: {},
-                });
-              </script>
             </div>
           </div>
           <!--/Graph Card-->
@@ -145,63 +215,11 @@
             <div class="p-5">
               <canvas
                 id="chartjs-1"
+                bind:this={chartjs1}
                 class="chartjs"
                 width="undefined"
                 height="undefined"
               />
-              <script>
-                new Chart(document.getElementById("chartjs-1"), {
-                  type: "bar",
-                  data: {
-                    labels: [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                    ],
-                    datasets: [
-                      {
-                        label: "Likes",
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        backgroundColor: [
-                          "rgba(255, 99, 132, 0.2)",
-                          "rgba(255, 159, 64, 0.2)",
-                          "rgba(255, 205, 86, 0.2)",
-                          "rgba(75, 192, 192, 0.2)",
-                          "rgba(54, 162, 235, 0.2)",
-                          "rgba(153, 102, 255, 0.2)",
-                          "rgba(201, 203, 207, 0.2)",
-                        ],
-                        borderColor: [
-                          "rgb(255, 99, 132)",
-                          "rgb(255, 159, 64)",
-                          "rgb(255, 205, 86)",
-                          "rgb(75, 192, 192)",
-                          "rgb(54, 162, 235)",
-                          "rgb(153, 102, 255)",
-                          "rgb(201, 203, 207)",
-                        ],
-                        borderWidth: 1,
-                      },
-                    ],
-                  },
-                  options: {
-                    scales: {
-                      yAxes: [
-                        {
-                          ticks: {
-                            beginAtZero: true,
-                          },
-                        },
-                      ],
-                    },
-                  },
-                });
-              </script>
             </div>
           </div>
           <!--/Graph Card-->
@@ -216,29 +234,11 @@
             <div class="p-5">
               <canvas
                 id="chartjs-4"
+                bind:this={chartjs4}
                 class="chartjs"
                 width="undefined"
                 height="undefined"
               />
-              <script>
-                new Chart(document.getElementById("chartjs-4"), {
-                  type: "doughnut",
-                  data: {
-                    labels: ["P1", "P2", "P3"],
-                    datasets: [
-                      {
-                        label: "Issues",
-                        data: [300, 50, 100],
-                        backgroundColor: [
-                          "rgb(255, 99, 132)",
-                          "rgb(54, 162, 235)",
-                          "rgb(255, 205, 86)",
-                        ],
-                      },
-                    ],
-                  },
-                });
-              </script>
             </div>
           </div>
           <!--/Graph Card-->
@@ -303,118 +303,7 @@
     </div>
   </div>
   <!--/container-->
-
-  <footer class="bg-gray-900 border-t border-gray-400 shadow">
-    <div class="container max-w-md mx-auto flex py-8">
-      <div class="w-full mx-auto flex flex-wrap">
-        <div class="flex w-full md:w-1/2 ">
-          <div class="px-8">
-            <h3 class="font-bold font-bold text-gray-100">About</h3>
-            <p class="py-4 text-gray-600 text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              vel mi ut felis tempus commodo nec id erat. Suspendisse
-              consectetur dapibus velit ut lacinia.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex w-full md:w-1/2">
-          <div class="px-8">
-            <h3 class="font-bold font-bold text-gray-100">Social</h3>
-            <ul class="list-reset items-center text-sm pt-3">
-              <li>
-                <a
-                  class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                  href="#">Add social link</a
-                >
-              </li>
-              <li>
-                <a
-                  class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                  href="#">Add social link</a
-                >
-              </li>
-              <li>
-                <a
-                  class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                  href="#">Add social link</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    /*Toggle dropdown list*/
-    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-    var userMenuDiv = document.getElementById("userMenu");
-    var userMenu = document.getElementById("userButton");
-
-    var navMenuDiv = document.getElementById("nav-content");
-    var navMenu = document.getElementById("nav-toggle");
-
-    document.onclick = check;
-
-    function check(e) {
-      var target = (e && e.target) || (event && event.srcElement);
-
-      //User Menu
-      if (!checkParent(target, userMenuDiv)) {
-        // click NOT on the menu
-        if (checkParent(target, userMenu)) {
-          // click on the link
-          if (userMenuDiv.classList.contains("invisible")) {
-            userMenuDiv.classList.remove("invisible");
-          } else {
-            userMenuDiv.classList.add("invisible");
-          }
-        } else {
-          // click both outside link and outside menu, hide menu
-          userMenuDiv.classList.add("invisible");
-        }
-      }
-
-      //Nav Menu
-      if (!checkParent(target, navMenuDiv)) {
-        // click NOT on the menu
-        if (checkParent(target, navMenu)) {
-          // click on the link
-          if (navMenuDiv.classList.contains("hidden")) {
-            navMenuDiv.classList.remove("hidden");
-          } else {
-            navMenuDiv.classList.add("hidden");
-          }
-        } else {
-          // click both outside link and outside menu, hide menu
-          navMenuDiv.classList.add("hidden");
-        }
-      }
-    }
-
-    function checkParent(t, elm) {
-      while (t.parentNode) {
-        if (t == elm) {
-          return true;
-        }
-        t = t.parentNode;
-      }
-      return false;
-    }
-  </script>
 </section>
 
 <style lang="scss">
-  .bg-black-alt {
-    background: #191919;
-  }
-  .text-black-alt {
-    color: #191919;
-  }
-  .border-black-alt {
-    border-color: #191919;
-  }
 </style>
