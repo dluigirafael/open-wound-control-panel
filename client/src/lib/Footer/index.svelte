@@ -17,21 +17,21 @@
           <h3 class="font-bold  text-gray-100">Social</h3>
           <ul class="list-reset items-center text-sm pt-3">
             <li>
-              <a
+              <button
                 class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                href="#">Add social link</a
+                >Add social link</button
               >
             </li>
             <li>
-              <a
+              <button
                 class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                href="#">Add social link</a
+                >Add social link</button
               >
             </li>
             <li>
-              <a
+              <button
                 class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                href="#">Add social link</a
+                >Add social link</button
               >
             </li>
           </ul>

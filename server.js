@@ -9,6 +9,7 @@ import {
   connect,
 } from "./dependencies/deps.js";
 // import { database } from "./database/db.js";
+import postRoutes from "./routes/posts.js";
 
 const redis = await connect({
   hostname: "localhost",
@@ -16,11 +17,10 @@ const redis = await connect({
 });
 
 const ok = await redis.set("key", { nene: "tanti" });
-const fuga = await redis.get("nene").catch((error) => console.log(error));
+const fuga = await redis.get("key");
 console.log(fuga);
 
 const router = new Router();
-import postRoutes from "./routes/posts.js";
 
 const app = new Application();
 const dashport = new DashportOak(app);

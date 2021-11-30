@@ -12,12 +12,11 @@
       class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0"
     >
       <div class="w-1/2 pl-2 md:pl-0">
-        <a
+        <button
           class="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold"
-          href="#"
         >
           <i class="fas fa-moon text-blue-400 pr-3" /> Open Wound Control Panel
-        </a>
+        </button>
       </div>
       <div class="w-1/2 pr-0">
         <div class="flex relative float-right">
@@ -55,25 +54,22 @@
             >
               <ul class="list-reset">
                 <li>
-                  <a
-                    href="#"
+                  <button
                     class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >My account</a
+                    >My account</button
                   >
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >Notifications</a
+                    >Notifications</button
                   >
                 </li>
                 <li><hr class="border-t mx-2 border-gray-400" /></li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >Logout</a
+                    >Logout</button
                   >
                 </li>
               </ul>

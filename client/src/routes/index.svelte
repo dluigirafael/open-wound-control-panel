@@ -292,7 +292,7 @@
               </table>
 
               <p class="py-2">
-                <a href="#" class="text-white">See More issues...</a>
+                <button class="text-white">See More issues...</button>
               </p>
             </div>
           </div>

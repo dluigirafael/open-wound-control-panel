@@ -7,6 +7,15 @@ router.get("/", (context) => {
   // makeJwt();
 });
 
+router.get("/uname", async (context) => {
+  const p = await Deno.run({
+    cmd: ["uname", "-a"],
+    stdout: "piped",
+    stderr: "piped",
+  }).output();
+  context.response.body = p;
+});
+
 router.post("/users", async ({ request, response }) => {
   const res = await request.body().value;
   users.push(res);
