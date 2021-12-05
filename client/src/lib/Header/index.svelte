@@ -107,6 +107,7 @@
           <HeaderButton icon="chat">Messages</HeaderButton>
           <HeaderButton icon="paid">Payments</HeaderButton>
           <HeaderButton icon="analytics">Analytics</HeaderButton>
+          <HeaderButton icon="info" route="/about">Info</HeaderButton>
         </ul>
 
         <div class="relative pull-right pl-4 pr-4 md:pr-0">

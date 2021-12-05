@@ -30,10 +30,6 @@ const dashport = new DashportOak(app);
 // console.clear();
 // console.log(onyx);
 
-app.use(router.routes());
-
-app.use(router.allowedMethods());
-
 app.use(routes.uname.prefix("/api").routes());
 app.use(routes.uname.allowedMethods());
 

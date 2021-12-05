@@ -1,25 +1,29 @@
-<script context="module">
-  import { browser, dev } from "$app/env";
+<script>
+  import { onMount } from "svelte";
 
-  // we don't need any JS on this page, though we'll load
-  // it in dev so that we get hot module replacement...
-  export const hydrate = dev;
+  async function getSystemInfo() {
+    const res = await fetch("/api/uname");
 
-  // ...but if the client-side router is already loaded
-  // (i.e. we came here from elsewhere in the app), use it
-  export const router = browser;
+    if (res.ok) {
+      return await res.json();
+    } else {
+      throw new Error(res);
+    }
+  }
 
-  // since there's no dynamic data here, we can prerender
-  // it so that it gets served as a static asset in prod
-  export const prerender = true;
+  let promise = getSystemInfo();
 </script>
 
 <svelte:head>
   <title>About</title>
 </svelte:head>
 
-<div class="content">
-  <h1>About this app</h1>
+<div class="content pt-[100px] text-white">
+  {#await promise}
+    <h3>Loading info</h3>
+  {:then res}
+    <h2>{res.message}</h2>
+  {/await}
 </div>
 
 <style>
