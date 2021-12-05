@@ -9,11 +9,13 @@ import {
   connect,
 } from "./dependencies/deps.js";
 // import { database } from "./database/db.js";
-import postRoutes from "./routes/posts.js";
+import routes from "./routes/routes.js";
+
+let env = config();
 
 const redis = await connect({
-  hostname: "localhost",
-  port: 6379,
+  hostname: env["REDIS_HOST"],
+  port: env["REDIS_PORT"],
 });
 
 const ok = await redis.set("key", { nene: "tanti" });
@@ -32,8 +34,8 @@ app.use(router.routes());
 
 app.use(router.allowedMethods());
 
-app.use(postRoutes.prefix("/api").routes());
-app.use(postRoutes.allowedMethods());
+app.use(routes.uname.prefix("/api").routes());
+app.use(routes.uname.allowedMethods());
 
 app.addEventListener("error", (evt) => {
   console.log(evt.error);

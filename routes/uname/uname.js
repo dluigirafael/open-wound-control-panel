@@ -1,4 +1,4 @@
-import { Router } from "../dependencies/deps.js";
+import { Router } from "../../dependencies/deps.js";
 const router = new Router();
 let users = [];
 
@@ -8,17 +8,17 @@ router.get("/", (context) => {
 });
 
 router.get("/uname", async (context) => {
-  const p = await Deno.run({
+  const p = Deno.run({
     cmd: ["uname", "-a"],
     stdout: "piped",
     stderr: "piped",
-  }).output();
-  context.response.body = p;
+  });
+
+  context.response.body = {
+    message: new TextDecoder()
+      .decode(await p.output())
+      .replace(/(\r\n|\n|\r)/gm, ""),
+  };
 });
 
-router.post("/users", async ({ request, response }) => {
-  const res = await request.body().value;
-  users.push(res);
-  response.body = users;
-});
 export default router;
