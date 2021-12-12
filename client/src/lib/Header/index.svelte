@@ -102,7 +102,7 @@
         id="nav-content"
       >
         <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-          <HeaderButton icon="home">Home</HeaderButton>
+          <HeaderButton icon="home">Dashboard</HeaderButton>
           <HeaderButton icon="task">Tasks</HeaderButton>
           <HeaderButton icon="chat">Messages</HeaderButton>
           <HeaderButton icon="paid">Payments</HeaderButton>
