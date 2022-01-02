@@ -1,9 +1,9 @@
 <script>
-  import { page } from "$app/stores";
-  import HeaderButton from "./headerButton.svelte";
+  // import { page } from "$app/stores";
 
-  let userMenu = false;
-  let navMenu = false;
+  import UserMenu from "./userMenu.svelte";
+  import { userMenu, navMenu } from "$src/store.js";
+  import NavBar from "./navBar.svelte";
 </script>
 
 <header>
@@ -23,7 +23,7 @@
           <div class="relative text-sm text-gray-100">
             <button
               id="userButton"
-              on:click={() => (userMenu = !userMenu)}
+              on:click={() => ($userMenu = !$userMenu)}
               class="flex items-center focus:outline-none mr-3"
             >
               <img
@@ -46,40 +46,14 @@
                 ></svg
               >
             </button>
-            <div
-              id="userMenu"
-              class={`bg-gray-900 rounded shadow-md mt-2 absolute  right-0 min-w-full overflow-auto z-30 ${
-                userMenu ? "" : "invisible"
-              }`}
-            >
-              <ul class="list-reset">
-                <li>
-                  <button
-                    class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >My account</button
-                  >
-                </li>
-                <li>
-                  <button
-                    class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >Notifications</button
-                  >
-                </li>
-                <li><hr class="border-t mx-2 border-gray-400" /></li>
-                <li>
-                  <button
-                    class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >Logout</button
-                  >
-                </li>
-              </ul>
-            </div>
+
+            <UserMenu />
           </div>
 
           <div class="block lg:hidden pr-4">
             <button
               id="nav-toggle"
-              on:click={() => (navMenu = !navMenu)}
+              on:click={() => ($navMenu = !$navMenu)}
               class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-100 hover:border-teal-500 appearance-none focus:outline-none"
             >
               <svg
@@ -95,43 +69,7 @@
         </div>
       </div>
 
-      <div
-        class={`w-full flex-grow lg:flex lg:items-center lg:w-auto ${
-          navMenu ? "" : "hidden"
-        }  mt-2 lg:mt-0 bg-gray-900 z-20`}
-        id="nav-content"
-      >
-        <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-          <HeaderButton icon="home">Dashboard</HeaderButton>
-          <HeaderButton icon="task">Tasks</HeaderButton>
-          <HeaderButton icon="chat">Messages</HeaderButton>
-          <HeaderButton icon="paid">Payments</HeaderButton>
-          <HeaderButton icon="analytics">Analytics</HeaderButton>
-          <HeaderButton icon="info" route="/about">Info</HeaderButton>
-        </ul>
-
-        <div class="relative pull-right pl-4 pr-4 md:pr-0">
-          <input
-            type="search"
-            placeholder="Search"
-            class="w-full bg-gray-900 text-sm text-gray-400 transition border border-gray-800 focus:outline-none focus:border-gray-600 rounded py-1 px-2 pl-10 appearance-none leading-normal"
-          />
-          <div
-            class="absolute search-icon"
-            style="top: 0.375rem;left: 1.75rem;"
-          >
-            <svg
-              class="fill-current pointer-events-none text-gray-500 w-4 h-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+      <NavBar />
     </div>
   </nav>
 </header>
