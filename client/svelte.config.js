@@ -3,28 +3,28 @@ import adapter from "@sveltejs/adapter-static";
 import path from "path";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: "#svelte",
-    adapter: adapter({
-      pages: "build",
-      assets: "build",
-      fallback: null,
-    }),
-    vite: {
-      resolve: {
-        alias: {
-          $src: path.resolve("./src/"),
-        },
-      },
-    },
-  },
+	kit: {
+		// hydrate the <div id="svelte"> element in src/app.html
 
-  preprocess: [
-    preprocess({
-      postcss: true,
-    }),
-  ],
+		adapter: adapter({
+			pages: "build",
+			assets: "build",
+			fallback: null,
+		}),
+		vite: {
+			resolve: {
+				alias: {
+					$src: path.resolve("./src/"),
+				},
+			},
+		},
+	},
+
+	preprocess: [
+		preprocess({
+			postcss: true,
+		}),
+	],
 };
 
 export default config;
