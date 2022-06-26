@@ -1,0 +1,12 @@
+{
+	"imports": {
+		"oak": "https://deno.land/x/oak/mod.ts",
+		"session": "https://deno.land/x/session/mod.ts",
+		"redis": "https://deno.land/x/redis/mod.ts",
+		"dotenv": "https://deno.land/x/dotenv/mod.ts",
+		"djwt": "https://deno.land/x/djwt/mod.ts",
+		"dashport": "https://deno.land/x/dashport/mod.ts",
+		"dashport_localauth": "https://deno.land/x/dashport_localauth/mod.ts",
+		"node": "https://deno.land/std/node/module.ts"
+	}
+}

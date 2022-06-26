@@ -22,26 +22,28 @@ let env = config();
 // const fuga = await redis.get("key");
 // console.log(fuga);
 
-const router = new Router();
+// const router = new Router();
 
 const app = new Application();
-const dashport = new DashportOak(app);
+// const dashport = new DashportOak(app);
 
 // console.clear();
 // console.log(onyx);
 
 app.use(routes.uname.prefix("/api").routes());
+app.use(routes.info.prefix("/api").routes());
 app.use(routes.uname.allowedMethods());
-
-app.addEventListener("error", (evt) => {
-	console.log(evt.error);
-});
+app.use(routes.info.allowedMethods());
 
 app.use(async (context) => {
+	console.log(context.request.url.pathname);
 	await send(context, context.request.url.pathname, {
 		root: `${Deno.cwd()}/client/build`,
 		index: "index.html",
 	});
+});
+app.addEventListener("error", (evt) => {
+	console.log(evt.error);
 });
 
 app.addEventListener("listen", ({ hostname, port, secure }) => {
