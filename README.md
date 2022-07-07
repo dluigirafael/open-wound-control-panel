@@ -10,3 +10,5 @@ Bleeding edge hosting control panel built with SvelteKit and Deno
 - systemd ctl gui
 - terminal access in panel (xtermjs probably)
 - backend to front comunication with socket.io
+- https://deno.land/x/faster
+
