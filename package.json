@@ -1,0 +1,20 @@
+{
+	"name": "open-wound-control-panel",
+	"version": "0.0.1",
+	"description": "Bleeding edge hosting control panel built with SvelteKit and Express",
+	"scripts": {
+		"build": "./build.js"
+	},
+	"type": "module",
+	"dependencies": {
+		"body-parser": "^1.13.3",
+		"compression": "^1.5.2",
+		"cors": "^2.7.1",
+		"dotenv": "^16.0.2",
+		"express": "^4.13.3",
+		"esbuild": "^0.15.7"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.19"
+	}
+}
