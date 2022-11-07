@@ -1,6 +1,4 @@
 <script>
-
-	
 </script>
 
 <svelte:head>
@@ -8,12 +6,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-
-
-
-
-</section >
+<section />
 
 <style lang="scss">
 	section {
@@ -23,5 +16,4 @@
 		align-items: center;
 		flex: 0.6;
 	}
-
 </style>
