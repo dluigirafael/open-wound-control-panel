@@ -1,10 +1,10 @@
 <script>
 	import Header from "./header.svelte";
 	import "../styles.scss";
-	let drawerStatus = false
-	const hideDrawer= ()=>{
-		drawerStatus = false
-	}
+	let drawerStatus = false;
+	const hideDrawer = () => {
+		drawerStatus = false;
+	};
 </script>
 
 <div class="app" data-theme="night">
