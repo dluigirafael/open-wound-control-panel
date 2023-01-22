@@ -1,0 +1,7 @@
+node_modules
+/node_modules
+.vscode
+.svelte
+.svelte-kit
+.DS_Store
+.env
