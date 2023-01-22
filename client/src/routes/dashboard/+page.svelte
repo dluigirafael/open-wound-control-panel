@@ -1,5 +1,5 @@
 <script>
-	import Stat from "$lib/components/stat.svelte";
+	import Stat from "$lib/stat/stat.svelte";
 </script>
 
 <main>

@@ -1,0 +1,1 @@
+deno run  --watch -A --import-map=import_map.json server.ts

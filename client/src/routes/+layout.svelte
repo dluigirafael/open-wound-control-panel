@@ -24,7 +24,7 @@
 			<ul class="menu p-4 w-80 bg-base-100 text-base-content">
 				<!-- Sidebar content here -->
 				<li><a on:click={hideDrawer} href="/dashboard">Dashboard</a></li>
-				<li><a on:click={hideDrawer} href=".">Sidebar Item 2</a></li>
+				<li><a on:click={hideDrawer} href="/file-manager">File Manager</a></li>
 			</ul>
 		</div>
 	</div>

@@ -3,14 +3,14 @@
 </script>
 
 <header>
-	<nav class="navbar bg-base-100">
+	<nav class="navbar bg-base-100 bg-info">
 		<div class="flex-1">
-			<label for="main-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+			<label for="main-drawer" class="btn  drawer-button">Open drawer</label>
 			<a href="." class="btn btn-ghost normal-case text-xl">OWCP</a>
 		</div>
 
 		<div class="flex-none gap-2">
-			<button class="btn btn-ghost rounded-btn">server_info</button>
+			<button class="btn  rounded-btn">server_info</button>
 
 			<button class="btn btn-ghost btn-circle">
 				<div class="indicator">
