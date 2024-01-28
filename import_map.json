@@ -1,6 +1,6 @@
 {
 	"imports": {
-		"os": "https://deno.land/std/node/os.ts",
+		"os": "https://deno.land/std@0.112.0/node/os.ts",
 		"oak": "https://deno.land/x/oak/mod.ts"
 	}
 }

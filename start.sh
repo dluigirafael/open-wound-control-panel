@@ -1,1 +1,1 @@
-deno run  --watch -A --import-map=import_map.json server.ts
+deno run   --watch -A --allow-env --import-map=import_map.json server.ts
